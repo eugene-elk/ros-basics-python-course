@@ -46,6 +46,6 @@ if __name__ == '__main__':
     rospy.init_node('move_bb8_test', anonymous=True)
     movebb8_object = MoveBB8()
     try:
-        movebb8_object.move_bb8()
+        movebb8_object.move_bb8(0, 0)
     except rospy.ROSInterruptException:
         pass
