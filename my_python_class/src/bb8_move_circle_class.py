@@ -33,12 +33,20 @@ class MoveBB8():
         # works better than the rospy.is_shutdown()
         self.ctrl_c = True
 
-    def move_bb8(self, linear_speed=0.2, angular_speed=0.2):
+    def move_bb8(self, linear_speed=0.2, angular_speed=0.2, time=1.0):
 
         self.cmd.linear.x = linear_speed
         self.cmd.angular.z = angular_speed
 
-        rospy.loginfo("Moving BB8!")
+        rospy.loginfo("Moving BB8")
+        self.publish_once_in_cmd_vel()
+
+        rospy.sleep(time)
+
+        self.cmd.linear.x = 0.0
+        self.cmd.angular.z = 0.0
+
+        rospy.loginfo("Stop BB8")
         self.publish_once_in_cmd_vel()
 
 
