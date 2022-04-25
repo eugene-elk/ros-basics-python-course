@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="rqt_graph_test" type="publisher.py" name="publish_node" output="screen" />
+    <node pkg="rqt_graph_test" type="subscriber.py" name="subscribe_node" output="screen" />
+</launch>
